@@ -5,7 +5,7 @@ pipeline {
         stage('Cloning') {
             steps {
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/GetPlaced60/Terraform-Automation.git']])
-                
+
             }
         }
     
@@ -21,7 +21,7 @@ pipeline {
             }
         }
 
-        stage (" Action") {
+        stage ("Action") {
             steps {
                 echo "Terraform action is --> ${action}"
                 sh ('terraform ${action} --auto-approve') 
